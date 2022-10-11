@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ordermenu/style.css">
+
+    <!-- <style>
+        .navbar {
+            height: 56px;
+            line-height: 56px;
+            padding: 0 26px;
+        }
+    </style> -->
+</head>
+
+<body>
+
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">FoodieHub</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="index.html"><h4>Home</h4></a>
+                    <a class="nav-item nav-link" href="orderMenu.html"><h4>Order Food</h4></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary" style="margin-right: 20px;" data-toggle="modal" data-target="#cart">Cart (<span
+                            class="total-count"></span>)</button><button class="clear-cart btn btn-danger" style="margin-right: 50px;">Clear
+                        Cart</button>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <!-- <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span
+                            class="total-count"></span>)</button><button class="clear-cart btn btn-danger">Clear
+                        Cart</button>
+                </div>
+            </div>
+        </nav> -->
+
+
+        <!-- Main -->
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/1.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Cheese Burger</h4>
+                            <p class="card-text">Price: Rs.80</p>
+                            <a href="#" data-name="Cheese Burger" data-price="80"
+                                class="add-to-cart btn btn-primary">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/2.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Sandwich</h4>
+                            <p class="card-text">Price: Rs. 60</p>
+                            <a href="#" data-name="Sandwich" data-price="60"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/3.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Veg Wrap</h4>
+                            <p class="card-text">Price: Rs. 80</p>
+                            <a href="#" data-name="Veg Wrap" data-price="80"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/4.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Bread Omelette</h4>
+                            <p class="card-text">Price: Rs.50</p>
+                            <a href="#" data-name="Bread Omelette" data-price="50"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/5.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">French Fries</h4>
+                            <p class="card-text">Price: Rs.60</p>
+                            <a href="#" data-name="French  Fries" data-price="60"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/6.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Hakka Noodles</h4>
+                            <p class="card-text">Price: Rs. 70</p>
+                            <a href="#" data-name="Hakka Noodles" data-price="70"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/7.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Chicken Afgani</h4>
+                            <p class="card-text">Price: Rs.90</p>
+                            <a href="#" data-name="Chicken Afgani" data-price="90"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/8.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Butter Chicken</h4>
+                            <p class="card-text">Price: Rs. 340</p>
+                            <a href="#" data-name="Butter Chicken" data-price="340"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/9.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Chicken Briyani</h4>
+                            <p class="card-text">Price: Rs. 110</p>
+                            <a href="#" data-name="Chicken Briyani" data-price="110"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/10.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Salsa Salad</h4>
+                            <p class="card-text">Price: Rs.120</p>
+                            <a href="#" data-name="Salsa Salad" data-price="120"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/11.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Egg Salad</h4>
+                            <p class="card-text">Price: Rs.80</p>
+                            <a href="#" data-name="Egg Salad" data-price="80"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/12.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Veg Salad</h4>
+                            <p class="card-text">Price: Rs.60</p>
+                            <a href="#" data-name="Veg Salad" data-price="60"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/13.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Fanta</h4>
+                            <p class="card-text">Price: Rs. 20</p>
+                            <a href="#" data-name="Fanta" data-price="20"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/14.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">CocaCola</h4>
+                            <p class="card-text">Price: Rs.20</p>
+                            <a href="#" data-name="CocaCola" data-price="20"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="orderMenu/img/15.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Sprite</h4>
+                            <p class="card-text">Price: Rs.20</p>
+                            <a href="#" data-name="Sprite" data-price="20"
+                                class="add-to-cart btn btn-primary text-white">Add to
+                                cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="show-cart table">
+
+                        </table>
+                        <div>Total price: Rs.<span class="total-cart"></span></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="orderBtn()">Order now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="orderMenu/script.js"></script>
+
+</body>
+
+</html>
