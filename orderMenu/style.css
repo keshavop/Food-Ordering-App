@@ -1,0 +1,18 @@
+
+.show-cart li {
+    display: flex;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    width: 300px;
+    height: 300px;
+    align-self: center;
+}
+
+.card{
+    --bs-card-border-width: 0px;
+}
