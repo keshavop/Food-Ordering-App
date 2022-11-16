@@ -180,7 +180,7 @@ $('.show-cart').on("click", ".plus-item", function (event) {
     displayCart();
 })
 
-// Item count input
+
 $('.show-cart').on("change", ".item-count", function (event) {
     var name = $(this).data('name');
     var count = Number($(this).val());
