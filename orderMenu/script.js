@@ -1,26 +1,21 @@
-// ************************************************
-// Shopping Cart API
-// ************************************************
 
 var shoppingCart = (function () {
-    // =============================
-    // Private methods and propeties
-    // =============================
+
     cart = [];
 
-    // Constructor
+
     function Item(name, price, count) {
         this.name = name;
         this.price = price;
         this.count = count;
     }
 
-    // Save cart
+
     function saveCart() {
         sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
     }
 
-    // Load cart
+
     function loadCart() {
         cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
     }
@@ -29,12 +24,10 @@ var shoppingCart = (function () {
     }
 
 
-    // =============================
-    // Public methods and propeties
-    // =============================
+
     var obj = {};
 
-    // Add to cart
+
     obj.addItemToCart = function (name, price, count) {
         for (var item in cart) {
             if (cart[item].name === name) {
@@ -47,7 +40,8 @@ var shoppingCart = (function () {
         cart.push(item);
         saveCart();
     }
-    // Set count from item
+
+
     obj.setCountForItem = function (name, count) {
         for (var i in cart) {
             if (cart[i].name === name) {
@@ -56,7 +50,8 @@ var shoppingCart = (function () {
             }
         }
     };
-    // Remove item from cart
+
+
     obj.removeItemFromCart = function (name) {
         for (var item in cart) {
             if (cart[item].name === name) {
@@ -70,7 +65,7 @@ var shoppingCart = (function () {
         saveCart();
     }
 
-    // Remove all items from cart
+
     obj.removeItemFromCartAll = function (name) {
         for (var item in cart) {
             if (cart[item].name === name) {
@@ -81,13 +76,13 @@ var shoppingCart = (function () {
         saveCart();
     }
 
-    // Clear cart
+
     obj.clearCart = function () {
         cart = [];
         saveCart();
     }
 
-    // Count cart 
+
     obj.totalCount = function () {
         var totalCount = 0;
         for (var item in cart) {
@@ -96,7 +91,7 @@ var shoppingCart = (function () {
         return totalCount;
     }
 
-    // Total cart
+
     obj.totalCart = function () {
         var totalCart = 0;
         for (var item in cart) {
@@ -105,7 +100,7 @@ var shoppingCart = (function () {
         return Number(totalCart.toFixed(2));
     }
 
-    // List cart
+
     obj.listCart = function () {
         var cartCopy = [];
         for (i in cart) {
@@ -121,25 +116,12 @@ var shoppingCart = (function () {
         return cartCopy;
     }
 
-    // cart : Array
-    // Item : Object/Class
-    // addItemToCart : Function
-    // removeItemFromCart : Function
-    // removeItemFromCartAll : Function
-    // clearCart : Function
-    // countCart : Function
-    // totalCart : Function
-    // listCart : Function
-    // saveCart : Function
-    // loadCart : Function
+
     return obj;
 })();
 
 
-// *****************************************
-// Triggers / Events
-// ***************************************** 
-// Add item
+
 $('.add-to-cart').click(function (event) {
     event.preventDefault();
     var name = $(this).data('name');
@@ -148,7 +130,7 @@ $('.add-to-cart').click(function (event) {
     displayCart();
 });
 
-// Clear items
+
 $('.clear-cart').click(function () {
     shoppingCart.clearCart();
     displayCart();
@@ -175,7 +157,7 @@ function displayCart() {
     $('.total-count').html(shoppingCart.totalCount());
 }
 
-// Delete item button
+
 
 $('.show-cart').on("click", ".delete-item", function (event) {
     var name = $(this).data('name')
@@ -184,13 +166,14 @@ $('.show-cart').on("click", ".delete-item", function (event) {
 })
 
 
-// -1
+
 $('.show-cart').on("click", ".minus-item", function (event) {
     var name = $(this).data('name')
     shoppingCart.removeItemFromCart(name);
     displayCart();
 })
-// +1
+
+
 $('.show-cart').on("click", ".plus-item", function (event) {
     var name = $(this).data('name')
     shoppingCart.addItemToCart(name);
